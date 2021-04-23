@@ -1,4 +1,4 @@
-Tabela Projetos:
+Tabela Projeto:
 
 1) id_projeto(int)(auto_increment): Id do projeto (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
@@ -8,14 +8,14 @@ Tabela Projetos:
 6) valor_projeto(double): Valor do projeto (numérico)
 7) risco(int): Risco (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
 
-Tabela Equipes:
+Tabela Equipe:
 
 1) id_equipe(int)(auto_increment): Id da equipe (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
 3) fk_id_projeto(int): Id do projeto da tabela projeto
 3) fk_id_participante(int): Id do participante da tabela participante	
 
-Tabela Participantes:
+Tabela Participante:
 
 1) id_participante(int)(auto_increment): Id do participante (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
@@ -25,7 +25,7 @@ Tabela Participantes:
 6) salario(double): Valor do salário (numérico)
 7) grau_eficiencia(int): Capacidade tecnica do participante (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
 
-Tabela Usuarios:
+Tabela Usuario:
 
 1) id_usuario(int)(auto_increment): Id do usuário (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)

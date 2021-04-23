@@ -1,4 +1,4 @@
-CREATE TABLE `sistema-lorem_ipsum`.`projetos` 
+CREATE TABLE `sistema-lorem_ipsum`.`projeto` 
 ( 
     `id_projeto` INT NOT NULL AUTO_INCREMENT COMMENT 'Id do projeto' ,
     `data_cadastro` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data de cadastro do registro' ,
@@ -10,7 +10,7 @@ CREATE TABLE `sistema-lorem_ipsum`.`projetos`
     PRIMARY KEY (`id_projeto`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `sistema-lorem_ipsum`.`participantes` 
+CREATE TABLE `sistema-lorem_ipsum`.`participante` 
 (
     `id_participante` INT NOT NULL AUTO_INCREMENT COMMENT 'Id do participante (inteiro)' ,
     `data_cadastro` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data de cadastro do registro (data)' ,
@@ -22,7 +22,7 @@ CREATE TABLE `sistema-lorem_ipsum`.`participantes`
     PRIMARY KEY (`id_participante`)
 ) ENGINE = InnoDB;
 
-CREATE TABLE `sistema-lorem_ipsum`.`equipes` 
+CREATE TABLE `sistema-lorem_ipsum`.`equipe` 
 ( 
     `id_equipe` INT NOT NULL AUTO_INCREMENT COMMENT 'Id da equipe (inteiro)' , 
     `data_cadastro` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Data de cadastro do registro (data)' ,
@@ -30,5 +30,5 @@ CREATE TABLE `sistema-lorem_ipsum`.`equipes`
     `fk_id_participante` INT NOT NULL COMMENT 'Id do participante da tabela participante' , 
     PRIMARY KEY (`id_equipe`)
 ) ENGINE = InnoDB;
-ALTER TABLE `equipes` ADD CONSTRAINT `Equipe contem participante` FOREIGN KEY (`fk_id_participante`) REFERENCES `participantes`(`id_participante`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-ALTER TABLE `equipes` ADD CONSTRAINT `Equipe contem projeto` FOREIGN KEY (`fk_id_projeto`) REFERENCES `projetos`(`id_projeto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `equipe` ADD CONSTRAINT `Equipe contem participante` FOREIGN KEY (`fk_id_participante`) REFERENCES `participante`(`id_participante`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+ALTER TABLE `equipe` ADD CONSTRAINT `Equipe contem projeto` FOREIGN KEY (`fk_id_projeto`) REFERENCES `projeto`(`id_projeto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
