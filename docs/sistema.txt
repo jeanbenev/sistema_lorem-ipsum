@@ -1,4 +1,4 @@
-Coluna Projetos:
+Tabela Projetos:
 
 1) id_projeto(int)(auto_increment): Id do projeto (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
@@ -7,9 +7,15 @@ Coluna Projetos:
 5) data_termino(date): Data de término (data)
 6) valor_projeto(float): Valor do projeto (numérico)
 7) risco(int): Risco (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
-8) fk_participantes(int): Chave estrangeira para a tabela de participantes
 
-Coluna Participantes:
+Tabela Equipes:
+
+1) id_equipe(int)(auto_increment): Id da equipe (inteiro)
+2) data_cadastro(date): Data de cadastro do registro (data)
+3) fk_id_projeto(int): Id do projeto da tabela projeto
+3) fk_id_participante(int): Id do participante da tabela participante	
+
+Tabela Participantes:
 
 1) id_participante(int)(auto_increment): Id do participante (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
@@ -18,11 +24,34 @@ Coluna Participantes:
 5) ingresso(date): Data de ingresso na empresa (data)
 6) salario(float): Valor do salário (numérico)
 7) grau_eficiencia(int): Capacidade tecnica do participante (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
-8) fk_id_projeto(int): Chave estrangeira para a tabela de projetos
 
-Coluna Usuarios:
+Tabela Usuarios:
 
 1) id_usuario(int)(auto_increment): Id do usuário (inteiro)
 2) data_cadastro(date): Data de cadastro do registro (data)
 3) login(string): Login do usuário (texto) 
 4) senha(string): Senha do usuário (texto)
+
+Log de atividades:
+
+# COMPOSER
+1) Instalei o Yii2 via composer usando o comando: composer create-project --prefer-dist yiisoft/yii2-app-basic sistema_lorem-ipsum
+#
+
+# GIT
+2) Iniciei o projeto git na pasta do Yii2 com o comando: git intit.
+3) Adicionei todo o projeto no git com o cmg: git add *.
+4) Commitei todo o projeto com o cmd: git commit -m "Instalação do yii2".
+#
+
+# BD
+5) Criei todas as tabelas com o arquivo de "querys.sql".
+6) Configurei o arquivo na pasta "config/db.php".
+#
+
+# DEV
+7) Adicionado o componente "Formatter".
+8) Adicionado o componente "urlManager"
+9) Criei o model "Projetos" usando o gii.
+10) Criei o CRUD "Projetos" usando o gii.
+#
