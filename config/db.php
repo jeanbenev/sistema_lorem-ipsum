@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=sistema-lorem_ipsum',
+    'dsn' => 'mysql:host=localhost;dbname=sistema_lorem-ipsum',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
