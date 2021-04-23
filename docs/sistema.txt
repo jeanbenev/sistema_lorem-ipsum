@@ -1,0 +1,28 @@
+Coluna Projetos:
+
+1) id_projeto(int)(auto_increment): Id do projeto (inteiro)
+2) data_cadastro(date): Data de cadastro do registro (data)
+3) nome_projeto(string): Nome do projeto (texto) 
+4) data_inicio(date): Data de início (data)
+5) data_termino(date): Data de término (data)
+6) valor_projeto(float): Valor do projeto (numérico)
+7) risco(int): Risco (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
+8) fk_participantes(int): Chave estrangeira para a tabela de participantes
+
+Coluna Participantes:
+
+1) id_participante(int)(auto_increment): Id do participante (inteiro)
+2) data_cadastro(date): Data de cadastro do registro (data)
+3) nome_participante(string): Nome do participante (texto) 
+4) cargo(string): Cargo do participante (texto)
+5) ingresso(date): Data de ingresso na empresa (data)
+6) salario(float): Valor do salário (numérico)
+7) grau_eficiencia(int): Capacidade tecnica do participante (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto 
+8) fk_id_projeto(int): Chave estrangeira para a tabela de projetos
+
+Coluna Usuarios:
+
+1) id_usuario(int)(auto_increment): Id do usuário (inteiro)
+2) data_cadastro(date): Data de cadastro do registro (data)
+3) login(string): Login do usuário (texto) 
+4) senha(string): Senha do usuário (texto)
