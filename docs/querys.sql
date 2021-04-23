@@ -5,7 +5,7 @@ CREATE TABLE `sistema-lorem_ipsum`.`projetos`
     `nome_projeto` VARCHAR(30) NOT NULL COMMENT 'Nome do projeto' ,
     `data_inicio` DATE NOT NULL COMMENT 'Data de início' ,
     `data_termino` DATE NOT NULL COMMENT 'Data de término' ,
-    `valor_projeto` FLOAT NOT NULL COMMENT 'Valor do projeto',
+    `valor_projeto` DOUBLE(20,2) NOT NULL COMMENT 'Valor do projeto',
     `risco` INT NOT NULL COMMENT 'Podendo ser: 0 - baixo, 1 - médio, 2 – alto',
     PRIMARY KEY (`id_projeto`)
 ) ENGINE = InnoDB;
@@ -17,7 +17,7 @@ CREATE TABLE `sistema-lorem_ipsum`.`participantes`
     `nome_participante` VARCHAR(100) NOT NULL COMMENT 'Nome do participante (texto) ' ,
     `cargo` VARCHAR(30) NOT NULL COMMENT 'Cargo do participante (texto)' ,
     `ingresso` DATE NOT NULL COMMENT 'Data de ingresso na empresa (data)' ,
-    `salario` FLOAT NOT NULL COMMENT 'Valor do salário (numérico)' ,
+    `salario` DOUBLE(20,2) NOT NULL COMMENT 'Valor do salário (numérico)' ,
     `grau_eficiencia` INT NOT NULL COMMENT 'Capacidade tecnica do participante (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto ' ,
     PRIMARY KEY (`id_participante`)
 ) ENGINE = InnoDB;
