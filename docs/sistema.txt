@@ -1,3 +1,77 @@
++ Gerenciar os cadastros de projetos.
+
+    **FUNCIONALIDADES:
+        [OK] CRUD.
+            [OK] Create
+            [OK] Read
+            [OK] Update
+            [OK] Delete
+                [OK] Ao clicar em excluir, um dialog deverá ser exibido para confirmar a exclusão.
+            [OK] Gerenciar
+
+        [] Exibir tempo de duração de um projeto na Tela de Gerenciar Projetos.
+            • A duração de um projeto deve ser o número de dias entre os dados "Data Inicio" e "Data Termino".
+
+        [] Realizar uma simulação do cálculo de retorno do investimento.
+            • Ao clicar em simular investimento, um dialog deverá ser exibido contendo um input numérico para o "valor de investimento" (123456,99 por exemplo) e
+              um botão para realizar o cálculo de retorno do investimento.
+              ao clicar no botão, o sistema deverá calcular e apresentar o valor, mantendo as informações na tela.
+            [] Caso o dado inserido pelo usuário como "valor do investimento" seja menor que o "valor do projeto", o sistema deverá exibir uma mensagem de erro.
+                "O cálculo de retorno do investimento deve levar em consideração o risco e valor que será investido".
+            [] Se o risco do projeto for baixo, o valor de retorno deve ser de 5% do valor do investimento.
+            [] Se o risco do projeto for mediano, o valor de retorno deve ser de 10% do valor do investimento.
+            [] Se o risco do projeto for alto, o valor de retorno deve ser de 20% do valor do investimento
+            
+    **DADOS:
+        • id_projeto(int)(auto_increment): Id do projeto (inteiro)
+        • data_cadastro(date): Data de cadastro do registro (data)
+        • nome_projeto(string): Nome do projeto (texto) 
+        • data_inicio(date): Data de início (data)
+        • data_termino(date): Data de término (data)
+        • valor_projeto(double): Valor do projeto (numérico)
+        • risco(int): Risco (inteiro) o Podendo ser: 0 - baixo, 1 - médio, 2 – alto
+        [] Tratamento dos dados:  
+            • id_projeto(int): 
+                [OK] Inteiro e automaticamente incrementado.
+                [OK] Escondido.
+                • data_cadastro(date):
+                [OK] Salvar automaticamente a data do cadastro.
+                [OK] Escondido.
+                [] Tratar o formato do dado, quando buscado do banco de dados.
+            • nome_projeto(string):
+                [OK] Na visualização limitar ao número de 30 caracteres.
+            • data_inicio(date):
+                [OK] Na visualização criar um filtro somente para valores de númericos.
+                [OK] Na visualização criar uma mascara no formato (DD/MM/YYYY) somente para datas.
+                [] Tratar o formato do dado quando inserido pelo usuário para ser salva no banco de dados.
+                [] Tratar o formato do dado buscado do banco de dados para ser exibido para o usuário.
+                [] A data de inicio deve ser inferior a data de termino.
+            • data_termino(date):
+                [OK] Na visualização criar um filtro somente para valores de númericos.
+                [OK] Na visualização criar uma mascara no formato (DD/MM/YYYY) somente para datas.
+                [] Tratar o formato do dado quando inserido pelo usuário para ser salva no banco de dados.
+                [] Tratar o formato do dado buscado do banco de dados para ser exibido para o usuário.
+                [] A data de termino deve ser superior a data de inicio.
+            • valor_projeto(double):
+                [] Na visualização criar um filtro somente para valores de númericos.
+                [] Na visualização criar uma mascara para valores de moeda.
+                [] Tratar o formato do dado quando inserido pelo usuário para ser salva no banco de dados.
+                [] Tratar o formato do dado buscado do banco de dados para ser exibido para o usuário.
+            • risco(int):
+                [] Na visualização criar um filtro somente para valores de númericos.
+
+    
+
++ Documentação
+• Documente bem seu código.
+• Crie um arquivo README.
+
++ Git
+• Fazer comentários nos commits bem descritos.
+
+
+
+
 Tabela Projeto:
 
 1) id_projeto(int)(auto_increment): Id do projeto (inteiro)
@@ -54,4 +128,13 @@ Log de atividades:
 8) Adicionado o componente "urlManager"
 9) Criei o model "Projetos" usando o gii.
 10) Criei o CRUD "Projetos" usando o gii.
+11) Criei o model "Participantes" usando o gii.
+10) Criei o CRUD "Participantes" usando o gii.
+11) Criei o model "Equipes" usando o gii.
+12) Criei o CRUD "Equipes" usando o gii.
+#
+
+# COMPOSER
+1) Instalei mascara para moedas via composer usando o comando: composer.phar require kartik-v/yii2-number "dev-master"
+2) Instalei widget de datas do bootstrap via composer usando o comando: composer require 2amigos/yii2-date-picker-widget:~1.0
 #
