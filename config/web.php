@@ -47,6 +47,7 @@ $config = [
         'db' => $db,
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
+            'defaultTimeZone' => 'America/Manaus',
             'dateFormat' => 'php:d/m/Y',
             'datetimeFormat' => 'php:d/m/Y H:i:s',
             'timeFormat' => 'php:H:i:s',
