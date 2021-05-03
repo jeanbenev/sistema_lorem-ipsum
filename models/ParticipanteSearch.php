@@ -17,9 +17,8 @@ class ParticipanteSearch extends Participante
     public function rules()
     {
         return [
-            [['id_participante', 'grau_eficiencia'], 'integer'],
-            [['data_cadastro', 'nome_participante', 'cargo', 'ingresso'], 'safe'],
-            [['salario'], 'number'],
+            [['id_participante'], 'integer'],
+            [['data_cadastro', 'nome_participante', 'cargo'], 'safe'],
         ];
     }
 
@@ -61,9 +60,6 @@ class ParticipanteSearch extends Participante
         $query->andFilterWhere([
             'id_participante' => $this->id_participante,
             'data_cadastro' => $this->data_cadastro,
-            'ingresso' => $this->ingresso,
-            'salario' => $this->salario,
-            'grau_eficiencia' => $this->grau_eficiencia,
         ]);
 
         $query->andFilterWhere(['like', 'nome_participante', $this->nome_participante])

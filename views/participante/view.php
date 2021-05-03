@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Participante */
 
-$this->title = $model->id_participante;
+$this->title = 'Visualizar Participante: '.$model->nome_participante;
 $this->params['breadcrumbs'][] = ['label' => 'Participantes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_participante], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_participante], [
+        <?= Html::a('Alterar', ['update', 'id' => $model->id_participante], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Deletar', ['delete', 'id' => $model->id_participante], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Você deseja excluir esse item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -33,9 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'data_cadastro',
             'nome_participante',
             'cargo',
-            'ingresso',
-            'salario',
-            'grau_eficiencia',
         ],
     ]) ?>
 

@@ -12,20 +12,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'data_cadastro')->textInput() ?>
-
     <?= $form->field($model, 'nome_participante')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'cargo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'ingresso')->textInput() ?>
-
-    <?= $form->field($model, 'salario')->textInput() ?>
-
-    <?= $form->field($model, 'grau_eficiencia')->textInput() ?>
-
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
