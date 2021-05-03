@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Projeto */
 
-$this->title = $model->id_projeto;
+$this->title = 'Visualizar Projeto: '.$model->nome_projeto;
 $this->params['breadcrumbs'][] = ['label' => 'Projetos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id_projeto], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id_projeto], [
+        <?= Html::a('Alterar', ['update', 'id' => $model->id_projeto], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Deletar', ['delete', 'id' => $model->id_projeto], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Você realmente deseja deletar esse item?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -34,8 +34,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'nome_projeto',
             'data_inicio',
             'data_termino',
-            'valor_projeto',
-            'risco',
+            [
+                'label' => 'Valor do Projeto',
+                'value' => $model->valorProjetoFormatado(),            
+            ],
+            [
+                'label' => 'Número de Dias',
+                'value' => $model->calcularQuantidadeDiasEntreDuasDatas()." dia(s)",
+            ],
+            [
+                'label' => 'Risco',
+                'value' => $model->getRiscoText(),            
+            ],
+            [
+                'label' => 'Participantes',
+                'value' => implode($model->getNomeParticipantesDoProjeto()," | "),            
+            ],
         ],
     ]) ?>
 

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Projeto;
+use app\models\Equipe;
 use app\models\ProjetoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -23,6 +24,7 @@ class ProjetoController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
+                    'CalcularRetornoInvestimento' => ['POST'],
                     'delete' => ['POST'],
                 ],
             ],
@@ -65,13 +67,66 @@ class ProjetoController extends Controller
     public function actionCreate()
     {
         $model = new Projeto();
-
+        if($model->load(Yii::$app->request->post())){
+            $transaction = Projeto::getDb()->beginTransaction();
+            try {
+                if($model->save()){
+                    foreach($model->participantes as $id_participante){
+                        $equipe = new Equipe;
+                        $equipe->data_cadastro = date("Y-m-d H:i:s");
+                        $equipe->fk_id_projeto = $model->id_projeto;
+                        $equipe->fk_id_participante = $id_participante;
+                        $equipe->save();
+                    }
+                    if($transaction->commit()){
+                        return $this->redirect(['view', 'id' => $model->id_projeto]);
+                    }
+                }
+            } catch(\Exception $e) {
+                $transaction->rollBack();
+                throw $e;
+            } catch(\Throwable $e) {
+                $transaction->rollBack();
+                throw $e;
+            }
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id_projeto]);
         }
 
         return $this->render('create', [
             'model' => $model,
+        ]);
+    }
+
+    /**
+     * @uses Usada para a funcionalidade de Simular um Investimento
+     */
+    public function actionSimularInvestimento($id)
+    {
+        $model = $this->findModel($id);
+        $model->scenario = 'simular_investimento';
+        $feedback = ['status'=>'info', 'mensagem'=>''];
+        if(Yii::$app->request->post()){
+            if($model->load(Yii::$app->request->post())){
+                if((int)$model->valor_investimento_simulacao<$model->valor_projeto){
+                    $feedback['status'] = "danger";
+                    $feedback['mensagem'] = "O cálculo de retorno do investimento deve levar em consideração o risco e valor que será investido";
+                }elseif($model->risco == 0){
+                    $feedback['status'] = "success";
+                    $feedback['mensagem'] = "O valor de retorno do projeto é de 5%: ".($model->formatarValorReal($model->valor_investimento_simulacao*0.05));
+                }elseif($model->risco == 1){
+                    $feedback['status'] = "success";
+                    $feedback['mensagem'] = "O valor de retorno do projeto é de 10%: ".($model->formatarValorReal($model->valor_investimento_simulacao*0.10));
+                }elseif($model->risco == 2){
+                    $feedback['status'] = "success";
+                    $feedback['mensagem'] = "O valor de retorno do projeto é de 20%: ".($model->formatarValorReal($model->valor_investimento_simulacao*0.20));
+                }
+            }
+        }
+        return $this->renderAjax('simularinvestimento', [
+            'model' => $model,
+            'feedback' => $feedback,
         ]);
     }
 
@@ -85,9 +140,30 @@ class ProjetoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            try {
+                foreach($model->equipes as $equipe){
+                    $equipe->delete();
+                }
+                foreach($model->participantes as $id_participante){
+                    $equipe = new Equipe;
+                    $equipe->data_cadastro = date("Y-m-d H:i:s");
+                    $equipe->fk_id_projeto = $model->id_projeto;
+                    $equipe->fk_id_participante = $id_participante;
+                    $equipe->save();
+                }
+                if($model->save()){
+                    return $this->redirect(['view', 'id' => $model->id_projeto]);
+                }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_projeto]);
+            } catch(\Exception $e) {
+                $transaction->rollBack();
+                throw $e;
+            } catch(\Throwable $e) {
+                $transaction->rollBack();
+                throw $e;
+            }
+            
         }
 
         return $this->render('update', [
@@ -104,8 +180,19 @@ class ProjetoController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $projeto = $this->findModel($id);
+        try {
+            foreach($projeto->equipes as $equipe){
+                $equipe->delete();
+            }
+        } catch(\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
+        $projeto->delete();
         return $this->redirect(['index']);
     }
 
