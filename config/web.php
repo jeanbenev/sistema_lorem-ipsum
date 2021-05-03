@@ -5,9 +5,11 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'sistema_lorem-ipsum',
+    'name' => 'Sistema de Gerenciamento de Projetos',
     'language' => 'pt-br',
     'timezone' => 'America/Manaus',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => 'projeto/index',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
