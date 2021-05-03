@@ -9,6 +9,12 @@ use yii\grid\GridView;
 
 $this->title = 'Participantes';
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerJs('if(window.location.search.search("equipe=true") === 1){
+    alert("Esse registro não pode ser excluído pois está associado a algum projeto.");
+    window.location = window.location.pathname;
+}');
+
 ?>
 <div class="participante-index">
 

@@ -104,7 +104,13 @@ class ParticipanteController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $participante = $this->findModel($id);
+        if(empty($participante->equipes)){
+            $participante->delete();
+        }
+        else{
+            return $this->redirect(['index','equipe'=>'true']);
+        }
 
         return $this->redirect(['index']);
     }
