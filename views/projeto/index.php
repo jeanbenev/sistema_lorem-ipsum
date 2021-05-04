@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('<span class="glyphicon glyphicon-usd"></span>', '#', [
                             'title' => Yii::t('yii', 'Simular Investimento'),
                             'class' => 'modalButton',
-                            'value' => Url::to('projeto/simular-investimento/?id='.$model->id_projeto),
+                            'value' => Url::to(Yii::$app->homeUrl.'/projeto/simular-investimento/?id='.$model->id_projeto),
                             'onclick' => 'return false;'
                         ]);                                
                     }
