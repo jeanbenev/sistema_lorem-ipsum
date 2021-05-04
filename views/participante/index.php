@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use kartik\dialog\Dialog;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ParticipanteSearch */
@@ -10,9 +11,14 @@ use yii\grid\GridView;
 $this->title = 'Participantes';
 $this->params['breadcrumbs'][] = $this->title;
 
+Dialog::widget();
+
 $this->registerJs('if(window.location.search.search("equipe=true") === 1){
-    alert("Esse registro não pode ser excluído pois está associado a algum projeto.");
-    window.location = window.location.pathname;
+    krajeeDialog.alert("Esse registro não pode ser excluído pois está associado a algum projeto.", function (result) {
+        if (result) {
+            window.location = window.location.pathname;
+        }
+    });
 }');
 
 ?>
