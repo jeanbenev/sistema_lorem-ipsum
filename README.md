@@ -122,7 +122,7 @@ git remote add origin https://github.com/jeanbenev/sistema_lorem-ipsum.git
 
 3) Buscar os arquivos do repositório remoto:
 ~~~
-git featch --all
+git fetch --all
 ~~~
 
 4) Resetar para o HEAD do repositório remoto:
