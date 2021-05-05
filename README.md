@@ -67,7 +67,7 @@ diretamente na raiz do seu servidor web.
 http://localhost/sistema_lorem-ipsum/web/
 ~~~
 
-### Instalar a partir de um arquivo
+### Instalação a partir de um arquivo
 
 A aplicação Yii2 está no diretório `basic` que está dentro do arquivo baixado [yiiframework.com](https://github.com/yiisoft/yii2/releases/download/2.0.41/yii-basic-app-2.0.41.tgz)
 
@@ -75,7 +75,7 @@ A aplicação Yii2 está no diretório `basic` que está dentro do arquivo baixa
 
 2) Coloque o diretório `sistema_lorem-ipsum` na raiz web do seu localhost.
 
-### Instalar os pacotes necessarios para rodar a aplicação
+### Instalação os pacotes necessarios para rodar a aplicação
 
 É necessário que você tenha o composer instalado e execute os seguintes comandos na pasta do sistema `sistema_lorem-ipsum`
 
@@ -159,7 +159,7 @@ docs/dump.sql
 docs/dump_data.sql
 ~~~
 
-ESTRUTURA DOS DIRETORIOS
+ESTRUTURA DOS DIRETÓRIOS
 -------------------
 
       docs/               Contem os arquivos de script para criação do banco de dados e descrição do sistema.
