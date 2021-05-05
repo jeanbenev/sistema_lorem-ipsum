@@ -49,7 +49,7 @@ O modulo `equipes` é um módulo invisível usado somente para a associação de
 INSTALAÇÃO
 ------------
 
-### Install via Composer
+### Instalação via Composer
 
 Se você não tiver o [Composer](http://getcomposer.org/), você pode instalá-lo seguindo as instruções
 em [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
@@ -74,6 +74,30 @@ A aplicação Yii2 está no diretório `basic` que está dentro do arquivo baixa
 1) Pegue o diretório `basic` contido dentro do arquivo baixado e renomeie para `sistema_lorem-ipsum`
 
 2) Coloque o diretório `sistema_lorem-ipsum` na raiz web do seu localhost.
+
+### Instalar os pacotes necessarios para rodar a aplicação
+
+É necessário que você tenha o composer instalado e execute os seguintes comandos na pasta do sistema `sistema_lorem-ipsum`
+
+1) Yii2 Number: 
+~~~
+composer require kartik-v/yii2-number "dev-master"
+~~~
+
+2) Yii2 Date Picker: 
+~~~
+composer require 2amigos/yii2-date-picker-widget:~1.0
+~~~
+
+3) Yii2 Select2: 
+~~~
+composer require kartik-v/yii2-widget-select2 "dev-master"
+~~~
+
+4) Yii2 Dialog: 
+~~~
+composer require kartik-v/yii2-dialog "dev-master"
+~~~
 
 Agora você deve ser capaz de acessar o aplicativo através da seguinte URL, assumindo que `sistema_lorem-ipsum` é o diretório
 diretamente na raiz da Web.
