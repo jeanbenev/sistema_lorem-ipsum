@@ -11,13 +11,48 @@
 O sistema nomeado "Sistema de Gerenciamento de Projetos" para a empresa Lorem Ipsum foi feito usando 
 o framework [Yii 2](http://www.yiiframework.com/).
 
+FUNCIONALIDADES
+------------
+
+### Modulo Projetos
+
+O modulo `projetos` contem as seguintes funcionalidades:
+
+~~~
+1) Criação de projeto.
+    • O campo de valor do projeto está configurado para que seja preenchido com valores no mínimo R$1.000,00 e no máximo R$10.000.000,00
+    • **ATENÇÃO** O campo participante só terá opções para serem escolhidas se já existirem participantes cadastrados.
+2) Visualização de um projeto.
+3) Alteração de projeto.
+4) Exclusão de um projeto.
+5) Uma visualização de gerenciamento dos projetos criados.
+    • Contém a acesso para a funcionalidade de "Simular Investimento"
+~~~
+
+### Modulo Participantes
+
+O modulo `participantes` contem as seguintes funcionalidades:
+
+~~~
+1) Criação de participante.
+2) Visualização de um participante.
+3) Alteração de participante.
+4) Exclusão de um participante.
+    • **ATENÇÃO** Participantes que estão associados a projetos não podem ser excluídos.
+5) Uma visualização de gerenciamento dos participantes criados.
+~~~
+
+### Modulo Equipes
+
+O modulo `equipes` é um módulo invisível usado somente para a associação de participantes a projetos.
+
 INSTALAÇÃO
 ------------
 
 ### Install via Composer
 
-Se você não tiver o [Composer] (http://getcomposer.org/), você pode instalá-lo seguindo as instruções
-em [getcomposer.org] (http://getcomposer.org/doc/00-intro.md#installation-nix).
+Se você não tiver o [Composer](http://getcomposer.org/), você pode instalá-lo seguindo as instruções
+em [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 Você pode então instalar o Yii2 no diretório raiz do seu servidor web localhost usando o seguinte comando:
 
@@ -34,7 +69,7 @@ http://localhost/sistema_lorem-ipsum/web/
 
 ### Instalar a partir de um arquivo
 
-A aplicação Yii2 está no diretório `basic` que está dentro do arquivo baixado [yiiframework.com] (https://github.com/yiisoft/yii2/releases/download/2.0.41/yii-basic-app-2.0.41.tgz)
+A aplicação Yii2 está no diretório `basic` que está dentro do arquivo baixado [yiiframework.com](https://github.com/yiisoft/yii2/releases/download/2.0.41/yii-basic-app-2.0.41.tgz)
 
 1) Pegue o diretório `basic` contido dentro do arquivo baixado e renomeie para `sistema_lorem-ipsum`
 
@@ -85,7 +120,7 @@ http://localhost/sistema_lorem-ipsum/web/
 
 ### Banco de Dados: Criando a estrutura e inserindo os dados
 
-Dentro da pasta docs/ há dois arquivos. Um contendo o script de criação do banco de dados e suas tabelas e outro contendo um script 
+Dentro da pasta `/docs/` há dois arquivos. Um contendo o script de criação do banco de dados e suas tabelas e outro contendo um script 
 para inserir alguns dados nessas tabelas. 
 
 1) Execute o script do arquivo a seguir para criação do banco e a estrutura das tabelas:
