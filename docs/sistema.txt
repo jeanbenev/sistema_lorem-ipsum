@@ -113,7 +113,7 @@ MODULO PARTICIPANTES{
 # DOCUMENTAÇÃO
 #=========================================================#
 [OK] Documente bem seu código.
-[] Crie um arquivo README.
+[OK] Crie um arquivo README.
 #=========================================================#
 #=====================########============================#
 
@@ -161,7 +161,7 @@ MODULO PARTICIPANTES{
     1) Instalei o Yii2 via composer usando o comando: composer create-project --prefer-dist yiisoft/yii2-app-basic sistema_lorem-ipsum
 #
 # GIT
-    2) Iniciei o projeto git na pasta do Yii2 com o comando: git intit.
+    2) Iniciei o projeto git na pasta do Yii2 com o comando: git init.
     3) Adicionei todo o projeto no git com o cmg: git add *.
     4) Commitei todo o projeto com o cmd: git commit -m "Instalação do yii2".
 #
@@ -180,9 +180,10 @@ MODULO PARTICIPANTES{
     12) Criei o CRUD "Equipes" usando o gii.
 #
 # COMPOSER
-    1) Instalei mascara para moedas via composer usando o comando: composer.phar require kartik-v/yii2-number "dev-master"
+    1) Instalei mascara para moedas via composer usando o comando: composer require kartik-v/yii2-number "dev-master"
     2) Instalei widget de datas do bootstrap via composer usando o comando: composer require 2amigos/yii2-date-picker-widget:~1.0
     3) Instalei widget select2 usando o comando: composer require kartik-v/yii2-widget-select2 "dev-master"
+    3) Instalei widget Dialog usando o comando: composer require kartik-v/yii2-dialog "dev-master""
 #
 }
 #=========================================================#
